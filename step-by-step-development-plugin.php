@@ -34,3 +34,11 @@ require_once STEPBYSTEP_PlUGIN_DIR.'/includes/StepByStepPlugin.php';
 register_activation_hook( __FILE__, array('includes\StepByStepPlugin' ,  'activation' ) );
 register_deactivation_hook( __FILE__, array('includes\StepByStepPlugin' ,  'deactivation' ) );
 
+function wpmudev_shortcode() {
+  ob_start(); ?> 
+  <div class="cta">
+    <p>Call us on 000-0000 or email <a href="mailto:sales@example.com">sales@example.com</a></p>
+  </div>
+  <?php return ob_get_clean();
+}
+add_shortcode( 'CTA', 'wpmudev_shortcode' );
